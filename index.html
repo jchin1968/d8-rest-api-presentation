@@ -32,18 +32,29 @@ class: center, middle
 * assumes you understand what is REST and why you'd want to use it.
 
 ---
-# Setting Up REST Services
-* Download REST UI module
-* Enable REST UI and RESTful Web Services modules
-* Enable and configure Content and User REST Resources
-* Configure User Permissions
-* Configure CORS settings in services.yml
+# Setup - Modules 
+* Required
+  * RESTful Web Services
+  * Serialization
+
+* Useful
+  * REST UI *
+
+* Optional 
+  * HAL
+  * HTTP Basic Authentication
+  * JSON API *
+  * GraphQL *
 
 ???
-## Modules 
-* don't need HAL or HTTP Basic Authentication. 
-* Serialization is required by RESTful Web Services
-* REST UI not needed but very useful
+* 
+
+---
+# Setup - Enable REST Resources
+* Go to: Configuration / Web Services / REST
+* Enable 
+
+???
 # REST Resources
 * Enable Content and User
 * For each resource, enable all Request types: GET, POST, PATCH, DELETE, use JSON and cooke authentication 
@@ -54,8 +65,13 @@ class: center, middle
 ## CORS
 * See Next slide
 
+
 ---
-# Configuring CORS
+# Setup - Configure User Permissions
+
+
+---
+# Setup - Configuring CORS
 #### services.yml
 ```
 cors.config:
