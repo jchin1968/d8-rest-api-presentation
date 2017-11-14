@@ -4,11 +4,16 @@
 
 body { 
 	font-family: 'Droid Serif';
+    color: #ffffff;
 }
 
 h1, h2, h3 {
   font-family: 'Yanone Kaffeesatz';
   font-weight: normal;
+}
+
+a {
+    color: green;
 }
 
 .remark-code, .remark-inline-code { 
@@ -20,8 +25,8 @@ h1, h2, h3 {
   width: 3%;
 }
 
-
 .remark-slide-content {
+    background-image: url(images/slide-bg.jpg);
 }
 
 .remark-slide-number {
