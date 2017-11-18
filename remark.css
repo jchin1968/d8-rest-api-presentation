@@ -9,7 +9,6 @@ body {
 }
 
 h1, h2, h3 {
-  /* font-family: 'Yanone Kaffeesatz'; */
   font-family: 'Saira';
   font-weight: 600;
 }
@@ -62,8 +61,22 @@ td {
 .remark-slide-number {
 }
 
+/**************************/
+/* Specific slide styling */
+/**************************/
+
+/* Cover slide */
 .cover-slide h1 {
     font-family: 'Saira';
     font-weight: 900;
     font-size: 250%;
+}
+
+
+/* Authenticated GET Response - Slide 13 */
+h4#successful- {
+  color: lime;
+}
+h4#failed- {
+  color:tomato;
 }
