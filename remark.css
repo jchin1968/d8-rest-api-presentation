@@ -22,6 +22,10 @@ li {
   line-height: 150%;
 }
 
+li ul li {
+  font-size: 85%;
+}
+
 table {
   border-top: 1px #f8f8f8 solid;
   border-left: 1px #f8f8f8 solid;

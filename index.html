@@ -181,12 +181,11 @@ cors.config:
 *
 
 ---
-# Creating an Article
-#### Request
+# Create Article Request
 * Method: POST
 * Header: 
   * Content-Type: application/json
-  * X-CSRF-Token: HqzPEYXvo85j8QMEslnCKwHQezmCDWvi7yxI1h-U194
+  * X-CSRF-Token: HqzPEY......1h-U194
 * URL: http://rest-demo/entity/node?_format=json
 * Body:
 
@@ -198,7 +197,8 @@ cors.config:
       }
 ```
 
-#### Response:
+---
+# Create Article Response
 ```
 {
   "nid": [{"value": 2}], 
@@ -215,12 +215,11 @@ cors.config:
 *
 
 ---
-# Updating an Article
-#### Request
+# Update Article Request
 * Method: PATCH
 * Header: 
   * Content-Type: application/json
-  * X-CSRF-Token: HqzPEYXvo85j8QMEslnCKwHQezmCDWvi7yxI1h-U194
+  * X-CSRF-Token: HqzPEY......1h-U194
 * URL: http://rest-demo/node/2?_format=json
 * Body:
 
@@ -231,7 +230,8 @@ cors.config:
     }
 ```
 
-#### Response:
+---
+# Update Article Response
 ```
 {
   "nid": [{"value": 2}], 
