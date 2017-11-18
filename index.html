@@ -8,23 +8,23 @@
   <body>
     <textarea id="source">
 
-class: center, bottom
+class: center, bottom, cover-slide
 background-image: url(images/slide-cover.jpg)
 # Drupal 8 REST API Services
-### Joseph Chin
+## Joseph Chin
 ---
 # Hello
 * Joseph Chin
 * Drupal Solution Architect since 2007
-* Committee Member of the Singapore Drupal Meetup
-* jchin1968 on .media-icon[![image](images/google.png) ![image](images/twitter.png) ![image](images/linkedin.png) ![image](images/facebook.png) ![image](images/github.png)]
+* Singapore Drupal Meetup committee member
+* jchin1968 on .media-icon[![image](images/google.png) ![image](images/twitter.png) ![image](images/linkedin.png) ![image](images/facebook.png) ![image](images/github-white.png)]
 * Follow along here: https://rawgit.com/jchin1968/d8-rest-api-presentation/master/index.html
 
 
 ---
 # Topics
 * Setting up REST Services on Drupal 8
-* GET, POST, PUT and DELETE Requests
+* GET, POST, PATCH and DELETE Requests
 * Making Authenticated REST Calls
 * Creating an endpoint using Views
 
@@ -33,52 +33,47 @@ background-image: url(images/slide-cover.jpg)
 
 ---
 # Setup - Modules 
-* Required
-  * RESTful Web Services
-  * Serialization
 
-* Useful
-  * REST UI *
-
-* Optional 
-  * HAL
-  * HTTP Basic Authentication
-  * JSON API *
-  * GraphQL *
+| Required             | Useful  | Optional                   |
+| :---                 | :---    | :---                       |
+| Serialization        | REST UI | HAL                        |
+| RESTFul Web Services |         | HTTP Basic Authentication  |
+|                      |         | JSON API                   |
+|                      |         | Graph QL                   |
 
 ???
-* 
+* HAL - stands for Hypertext Application Language
+* provides hyperlinks to related content? Not really sure of it's value
 
 ---
-# Setup - Enable REST Resources
-* Go to: Configuration / Web Services / REST
-* Enable 
+# Setup - REST Resources
+* Go to "Configuration / Web Services / REST"
+* Configure and Enable "Content"
+* Configure and Enable "User"
 
 ???
 # REST Resources
 * Enable Content and User
 * For each resource, enable all Request types: GET, POST, PATCH, DELETE, use JSON and cooke authentication 
-## Permissions
+
+
+---
+# Setup - User Permissions
 * REST APIs follow the same permission as normal pages
+
+???
 * Article node publicly accessible for viewing
 * User node is accessible only by administrator
-## CORS
-* See Next slide
-
 
 ---
-# Setup - Configure User Permissions
-
-
----
-# Setup - Configuring CORS
-#### services.yml
+# Setup - CORS
+### services.yml
 ```
 cors.config:
     enabled: true 
-    allowedHeaders: ['x-csrf-token','authorization','content-type','accept','origin','x-requested-with']
-    allowedMethods: ['*']
-    allowedOrigins: ['*']
+    allowedHeaders: ['*']
+    allowedMethods: ['GET', 'POST', 'PATCH']
+    allowedOrigins: ['http://trusted-partner:8100']
     exposedHeaders: true 
     maxAge: 1000 
     supportsCredentials: true 

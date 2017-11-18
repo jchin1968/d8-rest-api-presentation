@@ -1,24 +1,54 @@
 @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Saira:100,200,300,400,500,600,700,800,900);
 
 body { 
 	font-family: 'Droid Serif';
-    color: #ffffff;
+  color: #ffffff;
 }
 
 h1, h2, h3 {
-  font-family: 'Yanone Kaffeesatz';
-  font-weight: normal;
+  /* font-family: 'Yanone Kaffeesatz'; */
+  font-family: 'Saira';
+  font-weight: 600;
 }
 
 a {
-    color: green;
+    color: lime;
 }
+
+li {
+  font-size: 150%;
+  line-height: 150%;
+}
+
+table {
+  border-top: 1px #f8f8f8 solid;
+  border-left: 1px #f8f8f8 solid;
+}
+
+th {
+  text-transform:uppercase;
+  border-bottom: 1px #f8f8f8 solid;
+  border-right: 1px #f8f8f8 solid;
+  padding: 10px;
+  font-size: 1.6em;
+}
+
+td {
+  width: 30%;
+  vertical-align: top;
+  border-bottom: 1px #f8f8f8 solid;
+  border-right: 1px #f8f8f8 solid;
+  padding: 10px;
+  font-size: 1.5em;
+}
+
 
 .remark-code, .remark-inline-code { 
   font-family: 'Ubuntu Mono';
-
+  font-size: 120%;
 }
 
 .media-icon img {
@@ -30,4 +60,10 @@ a {
 }
 
 .remark-slide-number {
+}
+
+.cover-slide h1 {
+    font-family: 'Saira';
+    font-weight: 900;
+    font-size: 250%;
 }
