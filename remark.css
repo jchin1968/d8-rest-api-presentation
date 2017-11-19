@@ -20,10 +20,12 @@ a {
 li {
   font-size: 150%;
   line-height: 150%;
+  word-wrap: break-word;
 }
 
 li ul li {
   font-size: 85%;
+  word-wrap: break-word;
 }
 
 table {
@@ -69,18 +71,24 @@ td {
 /* Specific slide styling */
 /**************************/
 
-/* Cover slide */
-.cover-slide h1 {
+/* Slide - cover */
+#slide-cover h1 {
     font-family: 'Saira';
     font-weight: 900;
     font-size: 250%;
 }
 
 
-/* Authenticated GET Response - Slide 13 */
-h4#http-200-successful {
+/* Slide - Authenticated GET Response */
+#slide-auth-get-response h4#http-200-successful {
   color: lime;
 }
-h4#http-403-failed {
+
+#slide-auth-get-response  h4#http-403-failed {
   color:tomato;
 }
+
+/* Slide - References */
+#slide-references li {
+
+} 

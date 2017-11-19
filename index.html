@@ -8,7 +8,8 @@
   <body>
     <textarea id="source">
 
-class: center, bottom, cover-slide
+name: cover
+class: center, bottom
 background-image: url(images/slide-cover.jpg)
 # Drupal 8 REST API Services
 ## Joseph Chin
@@ -159,6 +160,7 @@ cors.config:
 * Session cookies need to be set in the HTTP header for server-side requests
 
 ---
+name: auth-get-response
 # Authenticated GET Response
 #### HTTP 200 - Successful
 ```
@@ -188,7 +190,7 @@ cors.config:
 * Method: POST
 * Header: 
   * Content-Type: application/json
-  * X-CSRF-Token: HqzPEY......1h-U194
+  * X-CSRF-Token: vVlThBvK_K0P......v5h17Hugsiok
 * URL: http://rest-demo/entity/node?_format=json
 * Body:
 
@@ -204,12 +206,13 @@ cors.config:
 # Create Article Response
 ```
 {
-  "nid": [{"value": 2}], 
+  "nid": [{ "value" : 2 }], 
   ....,
-
-  "type": [{"target_id": "article", ....}],
-  "status": [{"value": true}],
-  "title": [{"value": "Hello World"}],
+  ....,
+  "type": [{ "target_id" : "article", .... }],
+  "status": [{ "value" : true }],
+  "title": [{ "value" : "Hello World" }],
+  ....,
   ....
 }
 ```
@@ -222,14 +225,14 @@ cors.config:
 * Method: PATCH
 * Header: 
   * Content-Type: application/json
-  * X-CSRF-Token: HqzPEY......1h-U194
+  * X-CSRF-Token: vVlThBvK_K0P......v5h17Hugsiok
 * URL: http://rest-demo/node/2?_format=json
 * Body:
 
 ```
     {
-*     "type":[{"target_id":"article"}],
-      "title":[{"value":"Hello Joe"}]
+*     "type" : [{ "target_id" : "article" }],
+      "title" : [{ "value" : "Hello Joe" }]
     }
 ```
 
@@ -237,9 +240,11 @@ cors.config:
 # Update Article Response
 ```
 {
-  "nid": [{"value": 2}], 
+  "nid" : [{ "value" : 2 }], 
   ....,
-  "title": [{"value": "Hello Joe"}],
+  ....,
+  "title" : [{ "value" : "Hello Joe" }],
+  ....,
   ....
 }
 ```
@@ -251,7 +256,7 @@ cors.config:
 # Delete Article Request
 * Method: DELETE
 * Header: 
-  * X-CSRF-Token: HqzPEY......1h-U194
+  * X-CSRF-Token: vVlThBvK_K0P......v5h17Hugsiok
 * URL: http://rest-demo/node/2?_format=json
 * Omit Content-Type and Body
 
@@ -271,6 +276,7 @@ cors.config:
 * Accessing a single entity via REST is provided out of the box but to get a list requires creating views
 
 ---
+name: references
 # References
 * https://www.drupal.org/docs/8/core/modules/rest/javascript-and-drupal-8-restful-web-services   
 
