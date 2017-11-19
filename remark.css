@@ -78,9 +78,9 @@ td {
 
 
 /* Authenticated GET Response - Slide 13 */
-h4#successful- {
+h4#http-200-successful {
   color: lime;
 }
-h4#failed- {
+h4#http-403-failed {
   color:tomato;
 }

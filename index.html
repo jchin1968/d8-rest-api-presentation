@@ -92,17 +92,19 @@ cors.config:
 # Basic GET Response
 ```
 {
-  "nid": [{"value": 1}], 
+  "nid": [{ "value" : 1 }], 
   ....,
-
-  "status": [{"value": true}],
-  "title": [{"value": "The Quick Brown Fox"}],
+  ....,
+  "status": [{ "value" : true }],
+  "title": [{ "value" : "The Quick Brown Fox" }],
+  ....,
   ....,
   "body": [{
-    "value": "<p>The quick brown fox....the lazy dogs.</p>\r\n",
-    "format": "basic_html",
-    "summary": ""
+    "value" : "<p>The quick brown fox....the lazy dogs.</p>\r\n",
+    "format" : "basic_html",
+    "summary" : ""
   }],
+  ....,
   ....
 }
 
@@ -120,17 +122,17 @@ cors.config:
 * URL: http://rest-demo/user/login?_format=json
 * Body: 
 ```
-{ "name":"joe", "pass":"test" }
+{ "name" : "joe", "pass" : "test" }
 ```
 
 ---
 # Login POST Response
 ```
 {
-  "current_user": { 
-    "uid":"2", 
-    "name":"joe", 
-    "roles":["authenticated","administrator","editor","member"]
+  "current_user" : { 
+    "uid" : "2", 
+    "name" : "joe", 
+    "roles" : [ "authenticated", "editor", "member" ]
   },
 * "csrf_token":"vVlThBvK_K0PNmkcSeNr1ntw8qxADc8v5h17Hugsiok",
   "logout_token":"zLskC3cKPp1rV00E7jxXihNk1Zk-uaAldsQiHa_VaSM"
@@ -138,7 +140,7 @@ cors.config:
 ```
 <br>
 * Retain CSRF Token for "unsafe" requests
-* If server-side request (i.e. PHP code), retain the session cookie from the response HEADER
+* If server-side request (i.e. PHP code), retain the session cookie from the response header
 
 ???
 * Slightly more complicated as it expects an HTTP body which you can't provide through the URL
@@ -158,21 +160,22 @@ cors.config:
 
 ---
 # Authenticated GET Response
-#### Successful:
+#### HTTP 200 - Successful
 ```
 {
-  "uid": [{"value": 2}], 
+  "uid" : [{ "value" : 2 }], 
   ....,
-
-  "name": [{"value": "joe"}],
-  "mail": [{"value": "joe@test.com"}],
-  "timezone": [{"value": "Asia/Singapore"}],
-  "status": [{"value": true}],
+  ....,
+  "name" : [{ "value" : "joe" }],
+  "mail" : [{ "value" : "joe@test.com" }],
+  "timezone" : [{ "value" : "Asia/Singapore" }],
+  "status" : [{ "value" : true }],
+  ....,
   ....
 }
 
 ```
-#### Failed:
+#### HTTP 403 - Failed
 ```
 {"message":"The 'access user profiles' permission is required..."}
 ```
@@ -191,9 +194,9 @@ cors.config:
 
 ```
       {
-        "type":[{"target_id":"article"}],
-        "title":[{"value":"Hello World"}],
-        "body":[{"value":"How are you?"}]
+        "type" :[{ "target_id" : "article" }],
+        "title" :[{ "value" : "Hello World" }],
+        "body" : [{ "value" : "How are you?" }]
       }
 ```
 
