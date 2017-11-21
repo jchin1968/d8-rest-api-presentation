@@ -302,7 +302,7 @@ class: center, middle
 ```
     $.ajax({
       method: "POST",
-      url: "http://rest-demo/entity/node?_format=json",
+      url: "http://rest-demo/node?_format=json",
       data: JSON.stringify({
         "type" :[{ "target_id" : "article" }],
         "title" :[{ "value" : "Hello World" }],
@@ -360,7 +360,25 @@ class: center, middle
 ---
 # Update Node Sample Code
 ```
-
+    $.ajax({
+      method: "PATCH",
+      url: "http://rest-demo/node/" + nid + "?_format=json",
+      data: JSON.stringify({
+        "type" :[{ "target_id" : "article" }],
+        "title" :[{ "value" : "Hello Cebu" }],
+      }),
+      xhrFields: { withCredentials: true },
+      headers: { 
+        "X-CSRF-Token": csrfToken,
+        "Content-Type": "application/json"
+      }
+    })
+      .done(function(data, textStatus, jqXHR ) {
+        ...
+      })
+      .fail(function( jqXHR, textStatus ) {
+        ...
+      })
 
 ```
 
