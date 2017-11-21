@@ -33,12 +33,16 @@ background-image: url(images/slide-cover.jpg)
 * assumes you understand what is REST and why you'd want to use it.
 
 ---
+class: center, middle
+# Setup
+
+---
 # Setup - Modules 
 
 | Required             | Useful  | Optional                   |
 | :---                 | :---    | :---                       |
 | Serialization        | REST UI | HAL                        |
-| RESTFul Web Services |         | HTTP Basic Authentication  |
+| RESTFul Web Services | Views   | HTTP Basic Authentication  |
 |                      |         | JSON API                   |
 |                      |         | Graph QL                   |
 
@@ -55,7 +59,8 @@ background-image: url(images/slide-cover.jpg)
 ???
 # REST Resources
 * Enable Content and User
-* For each resource, enable all Request types: GET, POST, PATCH, DELETE, use JSON and cooke authentication 
+* For each resource, enable all Request types: GET, POST, PATCH, DELETE, use JSON and cooke authentication
+* Many resources available such as Action, Block, User Role, Taxonomy terms and vocabularies 
 
 
 ---
@@ -74,7 +79,7 @@ cors.config:
     enabled: true 
     allowedHeaders: ['*']
     allowedMethods: ['GET', 'POST', 'PATCH']
-    allowedOrigins: ['http://trusted-partner:8100']
+    allowedOrigins: ['http://trusted-nodejs-site:3000']
     exposedHeaders: true 
     maxAge: 1000 
     supportsCredentials: true 
@@ -85,9 +90,30 @@ cors.config:
 * Drupal 8 is configured by default to prevent resource sharing 
 
 ---
+class: center, middle
+# Making Requests
+
+---
 # Basic GET Request
 * Method: GET
 * URL: http://rest-demo/node/1?_format=json
+
+---
+# Basic GET Request
+#### jQuery Sample Code
+```
+    $.ajax({
+      method: "GET",
+      url: "http://rest-demo/node/1",
+      data: { _format: "json" },
+    })
+      .done(function(data, textStatus, jqXHR ) {
+        console.log('getNode OK', data);
+      })
+      .fail(function( jqXHR, textStatus ) {
+        console.log('getNode Error', jqXHR);
+      })
+```
 
 ---
 # Basic GET Response
@@ -116,15 +142,41 @@ cors.config:
 * In Drupal 8, you require the query parameter _format=json to identify it is json 
 
 ---
-
 # Login POST Request
 * Method: POST
 * Header: Content-Type: application/json
 * URL: http://rest-demo/user/login?_format=json
 * Body: 
+
 ```
-{ "name" : "joe", "pass" : "test" }
+      { 
+        "name" : "joe", 
+        "pass" : "test" 
+      }
 ```
+
+---
+# Login POST Request
+#### jQuery Sample Code
+```
+    $.ajax({
+      method: "POST",
+      url: "http://rest-demo/user/login?_format=json",
+      data: JSON.stringify({ name: "joe", pass: "test" }),
+      dataType: "json",
+      xhrFields: { withCredentials: true },
+      crossDomain: true,
+      headers: { "Content-Type" : "application/json" }
+    })
+      .done(function(data, textStatus, jqXHR) {
+        ...
+      })
+      .fail(function(jqXHR, textStatus, errorThrown) {
+        ...
+      })
+
+```
+
 
 ---
 # Login POST Response
@@ -230,10 +282,10 @@ name: auth-get-response
 * Body:
 
 ```
-    {
-*     "type" : [{ "target_id" : "article" }],
-      "title" : [{ "value" : "Hello Joe" }]
-    }
+      {
+*       "type" : [{ "target_id" : "article" }],
+        "title" : [{ "value" : "Hello Joe" }]
+      }
 ```
 
 ---
@@ -268,9 +320,13 @@ name: auth-get-response
 * HTTP 204 - Not an error message
 
 ---
+class: center, middle
+# Custom Endpoints
+
+---
 # Create JSON List
 * No lists provided by default
-* Create using Views
+* Create using Views as a "REST export"
 
 ???
 * Accessing a single entity via REST is provided out of the box but to get a list requires creating views
