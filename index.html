@@ -105,17 +105,17 @@ class: center, middle
 
 ---
 # Basic GET Request
-#### jQuery Sample Code
+#### Sample jQuery Code
 ```
     $.ajax({
       method: "GET",
       url: "http://rest-demo/node/1?_format=json",
     })
-      .done(function(data, textStatus, jqXHR ) {
-        console.log('getNode OK', data);
+      .done(function(data, textStatus, jqXHR) {
+        $('#title').html(data.title[0]['value']);
       })
-      .fail(function( jqXHR, textStatus ) {
-        console.log('getNode Error', jqXHR);
+      .fail(function(jqXHR, textStatus) {
+        ...
       })
 ```
 
@@ -161,7 +161,7 @@ class: center, middle
 
 ---
 # Login POST Request
-#### jQuery Sample Code
+#### Sample jQuery Code
 ```
     $.ajax({
       method: "POST",
@@ -170,6 +170,7 @@ class: center, middle
 *     xhrFields: { withCredentials: true },
     })
       .done(function(data, textStatus, jqXHR) {
+        csrfToken = data.csrf_token;
         ...
       })
       .fail(function(jqXHR, textStatus, errorThrown) {
