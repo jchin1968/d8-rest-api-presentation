@@ -262,7 +262,7 @@ class: center, middle
 
 ```
 ---
-# Create Article Request
+# Create Node Request
 * Method: POST
 * Header: 
   * Content-Type: application/json
@@ -279,7 +279,7 @@ class: center, middle
 ```
 
 ---
-# Create Article Response
+# Create Node Response
 ```
 {
   "nid": [{ "value" : 2 }], 
@@ -296,8 +296,36 @@ class: center, middle
 ???
 *
 
+
 ---
-# Update Article Request
+# Create Node Sample Code
+```
+    $.ajax({
+      method: "POST",
+      url: "http://rest-demo/entity/node?_format=json",
+      data: JSON.stringify({
+        "type" :[{ "target_id" : "article" }],
+        "title" :[{ "value" : "Hello World" }],
+        "body" : [{ "value" : "How are you?" }]
+      }),
+      xhrFields: { withCredentials: true },
+      headers: { 
+        "X-CSRF-Token": csrfToken,
+        "Content-Type": "application/json"
+      }
+    })
+      .done(function(data, textStatus, jqXHR ) {
+        ...
+      })
+      .fail(function( jqXHR, textStatus ) {
+        ...
+      })
+```      
+
+
+
+---
+# Update Node Request
 * Method: PATCH
 * Header: 
   * Content-Type: application/json
@@ -308,18 +336,18 @@ class: center, middle
 ```
       {
 *       "type" : [{ "target_id" : "article" }],
-        "title" : [{ "value" : "Hello Joe" }]
+        "title" : [{ "value" : "Hello Cebu" }]
       }
 ```
 
 ---
-# Update Article Response
+# Update Node Response
 ```
 {
   "nid" : [{ "value" : 2 }], 
     .
     .
-  "title" : [{ "value" : "Hello Joe" }],
+  "title" : [{ "value" : "Hello Cebu" }],
     .
     .
 }
@@ -327,6 +355,15 @@ class: center, middle
 
 ???
 *
+
+
+---
+# Update Node Sample Code
+```
+
+
+```
+
 
 ---
 # Delete Article Request
