@@ -384,7 +384,7 @@ class: center, middle
 
 
 ---
-# Delete Article Request
+# Delete Node Request
 * Method: DELETE
 * Header: 
   * X-CSRF-Token: vVlThBvK_K0P......v5h17Hugsiok
@@ -392,11 +392,57 @@ class: center, middle
 * Omit Content-Type and Body
 
 ---
-# Delete Article Response
+# Delete Node Response
 * HTTP 204 - No Content
 
 ???
 * HTTP 204 - Not an error message
+
+---
+# Delete Node Sample Code
+```
+    $.ajax({
+      method: "DELETE",
+      url: "http://rest-demo/node/" + nid + "?_format=json",
+      xhrFields: { withCredentials: true },
+      headers: { 
+        "X-CSRF-Token": csrfToken,
+        "Content-Type": "application/json"
+      }
+    })
+      .done(function(data, textStatus, jqXHR ) {
+        ...
+      })
+      .fail(function( jqXHR, textStatus ) {
+        ...
+      })
+```
+
+---
+# Logout Request
+* Method: GET
+* URL: http://rest-demo/user/logout
+
+
+---
+# Logout Response
+
+
+---
+# Logout Sample Code
+```
+    $.ajax({
+      method: "GET",
+      url: "http://rest-demo/user/logout",
+      xhrFields: { withCredentials: true },
+    })
+      .done(function(data, textStatus, jqXHR ) {
+        ...
+      })
+      .fail(function( jqXHR, textStatus ) {
+        ...
+      })
+```      
 
 ---
 class: center, middle
