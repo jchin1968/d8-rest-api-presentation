@@ -60,12 +60,19 @@ td {
   width: 3%;
 }
 
+body {
+  background-color: #000000 !important;
+}
+
 .remark-slide-content {
     background-image: url(images/slide-bg.jpg);
 }
 
-.remark-slide-number {
+.remark-slide-scaler {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;  
 }
+
 
 /**************************/
 /* Specific slide styling */
@@ -76,6 +83,12 @@ td {
     font-family: 'Saira';
     font-weight: 900;
     font-size: 250%;
+}
+
+#slide-edit-rest-resource img {
+  height: 500px;
+  position: relative;
+  top: -20px;
 }
 
 

@@ -64,6 +64,11 @@ class: center, middle
 
 
 ---
+name: edit-rest-resource
+# Setup - REST Resources
+.center.middle[![image](images/rest_user_setting.png)]
+
+---
 # Setup - User Permissions
 * REST APIs follow the same permission as normal pages
 
@@ -104,8 +109,7 @@ class: center, middle
 ```
     $.ajax({
       method: "GET",
-      url: "http://rest-demo/node/1",
-      data: { _format: "json" },
+      url: "http://rest-demo/node/1?_format=json",
     })
       .done(function(data, textStatus, jqXHR ) {
         console.log('getNode OK', data);
@@ -120,19 +124,19 @@ class: center, middle
 ```
 {
   "nid": [{ "value" : 1 }], 
-  ....,
-  ....,
+    .
+    .
   "status": [{ "value" : true }],
   "title": [{ "value" : "The Quick Brown Fox" }],
-  ....,
-  ....,
+    .
+    .
   "body": [{
     "value" : "<p>The quick brown fox....the lazy dogs.</p>\r\n",
     "format" : "basic_html",
     "summary" : ""
   }],
-  ....,
-  ....
+    .
+    .
 }
 
 ```
@@ -144,9 +148,8 @@ class: center, middle
 ---
 # Login POST Request
 * Method: POST
-* Header: Content-Type: application/json
 * URL: http://rest-demo/user/login?_format=json
-* Body: 
+* Data: 
 
 ```
       { 
@@ -154,6 +157,7 @@ class: center, middle
         "pass" : "test" 
       }
 ```
+* withCredentials: true
 
 ---
 # Login POST Request
@@ -163,10 +167,7 @@ class: center, middle
       method: "POST",
       url: "http://rest-demo/user/login?_format=json",
       data: JSON.stringify({ name: "joe", pass: "test" }),
-      dataType: "json",
-      xhrFields: { withCredentials: true },
-      crossDomain: true,
-      headers: { "Content-Type" : "application/json" }
+*     xhrFields: { withCredentials: true },
     })
       .done(function(data, textStatus, jqXHR) {
         ...
@@ -208,8 +209,33 @@ class: center, middle
 # Authenticated GET Request
 * Method: GET
 * URL: http://rest-demo/user/2?_format=json
-* Session cookies are automatically handled with browser requests
-* Session cookies need to be set in the HTTP header for server-side requests
+* withCredentials: true
+* Set session cookie in header (for server-side requests only) 
+
+
+
+???
+* Session cookies are automatically handled with browser requests BUT will need to be set in the HTTP header for server-side requests
+
+---
+# Authenticated GET Request
+#### jQuery Sample Code
+```
+    $.ajax({
+      method: "GET",
+      url: "http://rest-demo/user/2",
+      data: { _format: "json" },
+*     xhrFields: { withCredentials: true },
+    })
+      .done(function(data, textStatus, jqXHR ) {
+        console.log('getUser OK', data);
+      })
+      .fail(function( jqXHR, textStatus ) {
+        console.log('getUser Error', jqXHR);
+      })
+
+```
+
 
 ---
 name: auth-get-response
@@ -218,14 +244,14 @@ name: auth-get-response
 ```
 {
   "uid" : [{ "value" : 2 }], 
-  ....,
-  ....,
+    .
+    .
   "name" : [{ "value" : "joe" }],
   "mail" : [{ "value" : "joe@test.com" }],
   "timezone" : [{ "value" : "Asia/Singapore" }],
   "status" : [{ "value" : true }],
-  ....,
-  ....
+    .
+    .
 }
 
 ```
@@ -259,13 +285,13 @@ name: auth-get-response
 ```
 {
   "nid": [{ "value" : 2 }], 
-  ....,
-  ....,
+    .
+    .
   "type": [{ "target_id" : "article", .... }],
   "status": [{ "value" : true }],
   "title": [{ "value" : "Hello World" }],
-  ....,
-  ....
+    .
+    .
 }
 ```
 
@@ -293,11 +319,11 @@ name: auth-get-response
 ```
 {
   "nid" : [{ "value" : 2 }], 
-  ....,
-  ....,
+    .
+    .
   "title" : [{ "value" : "Hello Joe" }],
-  ....,
-  ....
+    .
+    .
 }
 ```
 
@@ -334,7 +360,8 @@ class: center, middle
 ---
 name: references
 # References
-* https://www.drupal.org/docs/8/core/modules/rest/javascript-and-drupal-8-restful-web-services   
+* https://www.drupal.org/docs/8/core/modules/rest/javascript-and-drupal-8-restful-web-services
+* http://api.jquery.com/jquery.ajax   
 
 ---
 # Q&amp;A
