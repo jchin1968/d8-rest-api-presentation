@@ -263,8 +263,7 @@ class: center, middle
 ```
     jQuery.ajax({
       method: "GET",
-      url: "http://rest-demo/user/2",
-*     data: { _format: "json" },
+      url: "http://rest-demo/user/2?_format=json",
 *     xhrFields: { withCredentials: true },
     })
       .done(function(data, textStatus, jqXHR ) {
