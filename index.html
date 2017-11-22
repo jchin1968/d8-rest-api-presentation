@@ -26,15 +26,29 @@ background-image: url(images/slide-cover.jpg)
 
 ---
 # Topics
+* REST Basics
 * Setting up REST Services
-* Making REST API calls
-* Authenticating with REST
+* Making API calls
+* Authentication
 * Using Views to ceate a custom endpoint
 * Q & A
 
 ???
 * assumes you understand what is REST and why you'd want to use it.
 
+
+---
+# REST Basics
+
+| Action | Method | URL Path      | Body |
+| :---   | :---   | :---          |:---  | 
+| Create | POST   | endpoint      | Yes  |
+| Read   | GET    | endpoint/{id} | No   |
+| Update | PATCH  | endpoint/{id} | Yes  |
+| Delete | DELETE | endpoint/{id} | No   |
+
+???
+* PUT is for replacing the entire content and requires all the fields where as PATCH only require the changed data 
 
 ---
 class: center, middle
