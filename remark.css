@@ -85,6 +85,20 @@ body {
     font-size: 250%;
 }
 
+/* Slide - Authenticated GET Response */
+#slide-view-rest-resources img {
+  height: 450px;
+  position: relative;
+  top: -40px;
+}
+
+/* Slide - View REST Resources */
+#slide-view-rest-resources h4 {
+  position: relative;
+  top: -20px;
+}
+
+/* Slide - Edit REST Resource */
 #slide-edit-rest-resource img {
   height: 500px;
   position: relative;

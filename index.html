@@ -13,6 +13,8 @@ class: center, bottom
 background-image: url(images/slide-cover.jpg)
 # Drupal 8 REST API Services
 ## Joseph Chin
+
+
 ---
 # Hello
 * Joseph Chin
@@ -24,10 +26,11 @@ background-image: url(images/slide-cover.jpg)
 
 ---
 # Topics
-* Setting up REST Services on Drupal 8
-* GET, POST, PATCH and DELETE Requests
-* Making Authenticated REST Calls
-* Creating an endpoint using Views
+* Setting up REST Services
+* Making REST API calls
+* Authenticating with REST
+* Using Views to ceate a custom endpoint
+* Q & A
 
 ???
 * assumes you understand what is REST and why you'd want to use it.
@@ -39,34 +42,42 @@ class: center, middle
 ---
 # Setup - Modules 
 
-| Required             | Useful  | Optional                   |
-| :---                 | :---    | :---                       |
-| Serialization        | REST UI | HAL                        |
-| RESTFul Web Services | Views   | HTTP Basic Authentication  |
-|                      |         | JSON API                   |
-|                      |         | Graph QL                   |
+| Required             | Should Be  | Optional                   |
+| :---                 | :---       | :---                       |
+| Serialization        | REST UI    | HAL                        |
+| RESTFul Web Services | Views      | HTTP Basic Authentication  |
+|                      |            | JSON API                   |
+|                      |            | Graph QL                   |
 
 ???
 * HAL - stands for Hypertext Application Language
 * provides hyperlinks to related content? Not really sure of it's value
+* HTTP Basic Auth. - better to use session cookies as more secure. Don't have to resend credentials everytime. user id/password can be intercepted in logs if credentials are passed via URL
+* JSON API - Include lists. Allows for simple filtering, pager, sorting via API
+* Graph QL - standard created by Facebook to allow for complex querying. Kinda like SQL for REST  
+
 
 ---
+name: view-rest-resources
 # Setup - REST Resources
-* Go to "Configuration / Web Services / REST"
-* Configure and Enable "Content"
-* Configure and Enable "User"
+#### Configuration / Web services / REST
+.center.middle[![image](images/rest_resources.png)]
 
 ???
-# REST Resources
+* this screen is made available by REST UI module
 * Enable Content and User
-* For each resource, enable all Request types: GET, POST, PATCH, DELETE, use JSON and cooke authentication
-* Many resources available such as Action, Block, User Role, Taxonomy terms and vocabularies 
+* Many resources available such as Action, Block, User Role, Taxonomy terms and vocabularies
+* Note the path available for each REST resource
 
 
 ---
 name: edit-rest-resource
 # Setup - REST Resources
 .center.middle[![image](images/rest_user_setting.png)]
+
+???
+* For each resource, enable required Request types: GET, POST, PATCH, DELETE. Enable JSON and cooke authentication
+
 
 ---
 # Setup - User Permissions
@@ -78,16 +89,18 @@ name: edit-rest-resource
 
 ---
 # Setup - CORS
-### services.yml
+* CORS - Cross Origin Resource Sharing
+* In service.yml
+
 ```
-cors.config:
-    enabled: true 
-    allowedHeaders: ['*']
-    allowedMethods: ['GET', 'POST', 'PATCH']
-    allowedOrigins: ['http://trusted-nodejs-site:3000']
-    exposedHeaders: true 
-    maxAge: 1000 
-    supportsCredentials: true 
+    cors.config:
+        enabled: true 
+        allowedHeaders: ['*']
+        allowedMethods: ['GET', 'POST', 'PATCH']
+        allowedOrigins: ['http://trusted-nodejs-site:3000']
+        exposedHeaders: true 
+        maxAge: 1000 
+        supportsCredentials: true 
 ```
 ???
 * CORS - cross origin resource sharing
@@ -214,8 +227,6 @@ class: center, middle
 * URL: http://rest-demo/user/2?_format=json
 * withCredentials: true
 * Set session cookie in header (for non-browser requests only) 
-
-
 
 ???
 * Session cookies are automatically handled with browser requests BUT will need to be set in the HTTP header for server-side requests
