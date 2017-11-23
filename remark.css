@@ -115,7 +115,10 @@ body {
   color:tomato;
 }
 
-/* Slide - References */
-#slide-references li {
-
+/* Slide - Section intro */
+#slide-setup h1,
+#slide-api-calls h1,
+#slide-custom-endpoints h1,
+#slide-qa h1 {
+  font-size: 400%;
 } 
