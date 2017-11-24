@@ -226,7 +226,7 @@ class: center, middle
     jQuery.ajax({
       method: "POST",
       url: "http://rest-demo/user/login?_format=json",
-      data: JSON.stringify({ name: "joe", pass: "test" }),
+*     data: JSON.stringify({ name: "joe", pass: "test" }),
 *     xhrFields: { withCredentials: true },
     })
       .done(function(data, textStatus, jqXHR) {
